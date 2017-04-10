@@ -24,7 +24,7 @@ namespace raycastNS
         {
             int x = Screen.width / 2;
             int y = Screen.height / 2;
-            Ray ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
+            ray = Camera.main.ScreenPointToRay(new Vector3(x, y));
             if (Physics.Raycast(ray, out hit, range))
             {
                 rayCastGameObject = hit.transform.gameObject;

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 public class HealtManager : MonoBehaviour {
@@ -11,7 +10,6 @@ public class HealtManager : MonoBehaviour {
 		currentHealth = maxHealth;
 		healthSlider.maxValue = maxHealth;
 		healthSlider.value = maxHealth;
-		DeathManager = GameObject.Find("_scripts").GetComponent<deathManager>();
 	}
 	
 	void Update () {
