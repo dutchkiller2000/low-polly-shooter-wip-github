@@ -29,6 +29,7 @@ public class MoneyManager : MonoBehaviour
     }
     public void BonusMoney()
     {
+        //can play animation here???
         CurrentMoney = CurrentMoney + MoneyToAddBonus;
         PlayerPrefs.SetInt("money", CurrentMoney);
     }
