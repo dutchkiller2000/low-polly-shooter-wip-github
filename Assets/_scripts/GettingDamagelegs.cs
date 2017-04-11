@@ -28,6 +28,10 @@ public class GettingDamagelegs : MonoBehaviour
             else
             {
                 gettingDamageManager.currentHealth = gettingDamageManager.currentHealth - bulletDamageManager.legs;
+
+                MoneyManager moneyManager;
+                moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
+                moneyManager.AddMoneyLegs(); 
                 ChangeWalkSpeed();
             }
             if (gettingDamageManager.debug)

@@ -22,6 +22,9 @@ public class GettingDamageBody : MonoBehaviour
             else
             {
                 gettingDamageManager.currentHealth = gettingDamageManager.currentHealth - bulletDamageManager.body;
+                MoneyManager moneyManager;
+                moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
+                moneyManager.AddMoneyBody();
             }
             if (gettingDamageManager.debug)
             {

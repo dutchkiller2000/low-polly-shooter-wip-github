@@ -92,6 +92,7 @@ public class ConsoleManager : MonoBehaviour
             if(typedText == "/reset score"){
                 PlayerPrefs.SetInt("hszk",0);
                 PlayerPrefs.SetInt("zk",0);
+                PlayerPrefs.SetInt("money",0);
             }
             if(typedText == "/reset settings"){
                 PlayerPrefs.SetInt("aa",0);

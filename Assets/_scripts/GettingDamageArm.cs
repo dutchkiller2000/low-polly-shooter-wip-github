@@ -22,6 +22,9 @@ public class GettingDamageArm : MonoBehaviour
             else
             {
                 gettingDamageManager.currentHealth = gettingDamageManager.currentHealth - bulletDamageManager.arms;
+                MoneyManager moneyManager;
+                moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
+                moneyManager.AddMoneyArms();
             }
             if(gettingDamageManager.debug){
                 Debug.Log("the player lost: " + bulletDamageManager.arms + " health so it has now: " + gettingDamageManager.currentHealth+" health!");

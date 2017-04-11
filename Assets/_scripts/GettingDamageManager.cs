@@ -9,12 +9,13 @@ public class GettingDamageManager : MonoBehaviour
     public float currentHealth;
     [HeaderAttribute("enemy killed counter")]
     public Text text;
+    MoneyManager moneyManager;
     void Start()
     {
         currentHealth = maxHealth;
         text = GameObject.Find("killCounter").GetComponent<Text>();
+        moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
     }
-
     void Update()
     {
         if (currentHealth <= 0)
@@ -35,6 +36,7 @@ public class GettingDamageManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("zk", PlayerPrefs.GetInt("zk") + 1);
         text.text = PlayerPrefs.GetInt("zk").ToString();
+        moneyManager.BonusMoney();
         Destroy(this.gameObject);
     }
 }
