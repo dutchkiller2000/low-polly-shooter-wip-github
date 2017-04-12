@@ -24,13 +24,16 @@ public class PauseManager : MonoBehaviour
 		itemSpawnerManagersc = GameObject.Find("_scripts").GetComponent<ItemSpawnerManager> (); // error
         consoleManager = this.gameObject.GetComponent<ConsoleManager>();
     }
-
-    void Update()
-    {
+    void Update(){
         if (Input.GetKeyDown(PauseKeyBind))
         {
             isPaused = !isPaused;
+            pause();
         }
+    }
+    void pause()
+    {
+        
         if (isPaused)
         {
             //disnable player character

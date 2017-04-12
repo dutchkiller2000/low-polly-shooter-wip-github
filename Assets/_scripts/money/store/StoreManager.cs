@@ -4,8 +4,11 @@ using UnityEngine;
 public class StoreManager : MonoBehaviour
 {
     public KeyCode openStore;
+    public GameObject storeUI;
     [HideInInspector]
-	public bool StoreOpen = false;
+    public bool StoreOpen = false;
+    public GameObject[] GMToDisn;
+    public bool canOpenStore = true;
     void Start()
     {
 
@@ -17,19 +20,47 @@ public class StoreManager : MonoBehaviour
         if (coll.gameObject.tag == "Player")
         {
             //press e to open store tab
-            Debug.Log("player can open store if press: " + openStore);
             if (Input.GetKeyDown(openStore))
             {
-
-                StoreOpen = true;
+                if (canOpenStore)
+                {
+                    StoreOpen = !StoreOpen;
+                    canOpenStore = false;
+                    if (StoreOpen)
+                    {
+                        OnStoreOpen();
+                    }
+                    else
+                    {
+                        OnStoreClose();
+                    }
+                    StartCoroutine(canOpenAgain());
+                }
             }
         }
-        if (StoreOpen)
+
+    }
+    public void OnStoreOpen()
+    {
+        storeUI.SetActive(true);
+        Time.timeScale = 0;
+        for (int i = 0; i < GMToDisn.Length; i++)
         {
-            Debug.Log("store open");
-            //pause game 
-            // store gm enabled
-			//ispause = true
+            GMToDisn[i].SetActive(false);
         }
+    }
+    public void OnStoreClose()
+    {
+        storeUI.SetActive(false);
+        Time.timeScale = 1;
+        for (int i = 0; i < GMToDisn.Length; i++)
+        {
+            GMToDisn[i].SetActive(true);
+        }
+    }
+    IEnumerator canOpenAgain()
+    {
+        yield return new WaitForSecondsRealtime(1);
+        canOpenStore = true;
     }
 }
