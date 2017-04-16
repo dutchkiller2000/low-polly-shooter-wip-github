@@ -12,10 +12,13 @@ public class StoreManager : MonoBehaviour
     SimpleShooting simpleShooting;
     public bool canOpenStore = true;
     PauseManager pauseManager;
+    ConsoleManager consoleManager;
     void Start()
     {
         simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
         pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
+        consoleManager = GameObject.Find("_scripts").GetComponent<ConsoleManager>();
+
     }
 
     void Update()
@@ -32,28 +35,32 @@ public class StoreManager : MonoBehaviour
 
     void OnTriggerStay(Collider coll)
     {
-        if (coll.gameObject.tag == "Player")
+        if (!consoleManager.chatOpen)
         {
-            //press e to open store tab
-            if (Input.GetKeyDown(openStore))
+
+            if (coll.gameObject.tag == "Player")
             {
-                if (canOpenStore)
+                //press e to open store tab
+                if (Input.GetKeyDown(openStore))
                 {
-                    StoreOpen = !StoreOpen;
-                    canOpenStore = false;
-                    if (StoreOpen)
+                    if (canOpenStore)
                     {
-                        OnStoreOpen();
+                        StoreOpen = !StoreOpen;
+                        canOpenStore = false;
+                        if (StoreOpen)
+                        {
+                            OnStoreOpen();
+                        }
+                        else
+                        {
+                            OnStoreClose();
+                        }
+
                     }
-                    else
-                    {
-                        OnStoreClose();
-                    }
-                    
                 }
             }
-        }
 
+        }
     }
     //need to disnable player so ai wont move anymore or just disnable ai
     public void OnStoreOpen()
@@ -80,7 +87,7 @@ public class StoreManager : MonoBehaviour
         }
         StartCoroutine(canOpenAgain());
         pauseManager.isPaused = false;
-        
+
     }
     IEnumerator canOpenAgain()
     {

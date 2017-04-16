@@ -23,6 +23,7 @@ public class ConsoleManager : MonoBehaviour
     [HeaderAttribute("extra gm that need to be disnabled when console is open")]
     public GameObject healthBar;
     public GameObject AmmoGUI;
+    ConsoleManager consoleManager;
     void Start()
     {
         //InputField = GameObject.Find("console").GetComponent<InputField>();
@@ -36,7 +37,7 @@ public class ConsoleManager : MonoBehaviour
 
     void Update()
     {
-
+       
 
         if (Input.GetKeyDown(keycode) && !chatOpen)
         {
@@ -107,7 +108,7 @@ public class ConsoleManager : MonoBehaviour
                 PlayerPrefs.SetInt("sq", 0);
             }
             if(typedText == "/give money"){
-                moneyManager.CurrentMoney = moneyManager.CurrentMoney + 10000;
+                moneyManager.CurrentMoney = moneyManager.CurrentMoney + 100000;
             }
             //show error if command isnt found(not working)
             // if (typedText.Contains("/quit") || typedText.Contains("/trow error") || typedText.Contains("/clear console") || 
