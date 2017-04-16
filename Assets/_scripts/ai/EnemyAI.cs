@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     public bool maglopen;
 
     PauseManager PauseManager;
+    StoreManager storeManager;
     public GameObject player;
     void Start()
     {
@@ -15,6 +16,7 @@ public class EnemyAI : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         PauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
         player = GameObject.Find("FPSController");
+        storeManager = GameObject.Find("StoreTrigger").GetComponent<StoreManager>();
     }
 
     void Update()
@@ -25,10 +27,13 @@ public class EnemyAI : MonoBehaviour
             {
                 if (GameObject.Find("enemy") || GameObject.Find("enemy(Clone)"))
                 {
+
+
                     Vector3 moveDirection = Vector3.zero;
                     moveDirection = this.transform.position;
                     moveDirection.y -= gravity * Time.deltaTime;
-                    if (maglopen)    
+
+                    if (maglopen && !storeManager.StoreOpen)
                     {
                         agent.destination = player.GetComponent<Transform>().position;
 

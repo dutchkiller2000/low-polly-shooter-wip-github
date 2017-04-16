@@ -27,7 +27,8 @@ public class ReduceDoingDamage : MonoBehaviour
             counter = counter + 1;
             if (counter >= timesReduceSpeed)
             {
-                GetComponentInChildren<zombieDamage>().damage = GetComponentInChildren<zombieDamage>().damage / 100 * procent;
+                Debug.Log("damage reduced");
+                //GetComponentInChildren<zombieDamage>().damage = GetComponentInChildren<zombieDamage>().damage / 100 * procent;
 				//ERROR: cant find component because its cearching in child but this gm is already a child so it doent gave child
             }
         }

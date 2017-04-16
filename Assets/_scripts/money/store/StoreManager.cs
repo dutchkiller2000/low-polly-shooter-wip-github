@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-
+using UnityStandardAssets.Characters.FirstPerson;
 public class StoreManager : MonoBehaviour
 {
     public KeyCode openStore;
@@ -8,15 +8,30 @@ public class StoreManager : MonoBehaviour
     [HideInInspector]
     public bool StoreOpen = false;
     public GameObject[] GMToDisn;
+    public FirstPersonController fps;
+    SimpleShooting simpleShooting;
     public bool canOpenStore = true;
+    PauseManager pauseManager;
     void Start()
     {
+        simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
+        pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
+    }
 
+    void Update()
+    {
+        if (StoreOpen)
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                StoreOpen = false;
+                OnStoreClose();
+            }
+        }
     }
 
     void OnTriggerStay(Collider coll)
     {
-        Debug.Log("collider works");
         if (coll.gameObject.tag == "Player")
         {
             //press e to open store tab
@@ -34,29 +49,38 @@ public class StoreManager : MonoBehaviour
                     {
                         OnStoreClose();
                     }
-                    StartCoroutine(canOpenAgain());
+                    
                 }
             }
         }
 
     }
+    //need to disnable player so ai wont move anymore or just disnable ai
     public void OnStoreOpen()
     {
         storeUI.SetActive(true);
-        Time.timeScale = 0;
+        fps.enabled = false;
+        Cursor.visible = true;
+        simpleShooting.enabled = false;
         for (int i = 0; i < GMToDisn.Length; i++)
         {
             GMToDisn[i].SetActive(false);
         }
+        StartCoroutine(canOpenAgain());
     }
     public void OnStoreClose()
     {
+        simpleShooting.enabled = true;
+        fps.enabled = true;
         storeUI.SetActive(false);
-        Time.timeScale = 1;
+        Cursor.visible = false;
         for (int i = 0; i < GMToDisn.Length; i++)
         {
             GMToDisn[i].SetActive(true);
         }
+        StartCoroutine(canOpenAgain());
+        pauseManager.isPaused = false;
+        
     }
     IEnumerator canOpenAgain()
     {

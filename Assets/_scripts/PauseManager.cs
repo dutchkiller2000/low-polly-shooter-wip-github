@@ -11,20 +11,24 @@ public class PauseManager : MonoBehaviour
     public GameObject pauseMenu;
     public GameObject ammoUI;
     public GameObject healthSlider;
-	SimpleShooting simpleShootingsc;
+    SimpleShooting simpleShootingsc;
     ItemSpawnerManager itemSpawnerManagersc;
     ConsoleManager consoleManager;
+    StoreManager storeManager;
 
 
     public bool isPaused;
 
     void Start()
     {
-		simpleShootingsc = GameObject.Find("_scripts").GetComponent<SimpleShooting>(); // error
-		itemSpawnerManagersc = GameObject.Find("_scripts").GetComponent<ItemSpawnerManager> (); // error
+        simpleShootingsc = GameObject.Find("_scripts").GetComponent<SimpleShooting>(); // error
+        itemSpawnerManagersc = GameObject.Find("_scripts").GetComponent<ItemSpawnerManager>(); // error
         consoleManager = this.gameObject.GetComponent<ConsoleManager>();
+        Cursor.visible = false;
+        storeManager = GameObject.Find("StoreTrigger").GetComponent<StoreManager>(); 
     }
-    void Update(){
+    void Update()
+    {
         if (Input.GetKeyDown(PauseKeyBind))
         {
             isPaused = !isPaused;
@@ -33,8 +37,8 @@ public class PauseManager : MonoBehaviour
     }
     void pause()
     {
-        
-        if (isPaused)
+
+        if (isPaused && !storeManager.StoreOpen)
         {
             //disnable player character
             character.SetActive(false);
@@ -46,7 +50,7 @@ public class PauseManager : MonoBehaviour
             Cursor.visible = true;
             itemSpawnerManagersc.enabled = false;
             simpleShootingsc.enabled = false;
-            consoleManager.enabled = false; 
+            consoleManager.enabled = false;
             consoleManager.InputFieldGM.SetActive(false);
             ammoUI.SetActive(false);
             healthSlider.SetActive(false);
@@ -57,11 +61,11 @@ public class PauseManager : MonoBehaviour
             pauseMenu.SetActive(false);
             Time.timeScale = 1;
             Cursor.visible = false;
-			itemSpawnerManagersc.enabled = true;
-			simpleShootingsc.enabled = true;
-            consoleManager.enabled = true;  
+            itemSpawnerManagersc.enabled = true;
+            simpleShootingsc.enabled = true;
+            consoleManager.enabled = true;
             ammoUI.SetActive(true);
-            healthSlider.SetActive(true)
-;        }
+            healthSlider.SetActive(true);
+        }
     }
 }

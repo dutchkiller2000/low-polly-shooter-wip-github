@@ -15,6 +15,7 @@ public class ConsoleManager : MonoBehaviour
     FirstPersonController firstPersonController;
     AmmoManager ammoManager;
     HealtManager healthManager;
+    MoneyManager moneyManager;
     bool godMode;
     string typedText;
     [HeaderAttribute("spawning items under here")]
@@ -30,30 +31,31 @@ public class ConsoleManager : MonoBehaviour
         InputFieldGM.SetActive(false);
         typedText = "";
         healthManager = GameObject.Find("FPSController").GetComponent<HealtManager>();
-
+        moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
     }
 
     void Update()
     {
-    
+
 
         if (Input.GetKeyDown(keycode) && !chatOpen)
         {
             chatOpen = true;
             InputField.text = "";
+            if (chatOpen)
+            {
+                InputFieldGM.SetActive(true);
+                firstPersonController.enabled = false;
+                healthBar.SetActive(false);
+                AmmoGUI.SetActive(false);
+            }
+            else
+            {
+                InputFieldGM.SetActive(false);
+                firstPersonController.enabled = true;
+            }
         }
-        if (chatOpen)
-        {
-            InputFieldGM.SetActive(true);
-            firstPersonController.enabled = false;
-            healthBar.SetActive(false);
-            AmmoGUI.SetActive(false);
-        }
-        else
-        {
-            InputFieldGM.SetActive(false);
-            firstPersonController.enabled = true;
-        }
+
         if (InputFieldGM.activeSelf)
         {
             InputField.Select();
@@ -69,6 +71,7 @@ public class ConsoleManager : MonoBehaviour
             healthBar.SetActive(true);
             AmmoGUI.SetActive(true);
             chatOpen = false;
+            firstPersonController.enabled = true;
             //check if any commands has been typed
             if (typedText.Contains("/give ammo"))
             {
@@ -89,17 +92,22 @@ public class ConsoleManager : MonoBehaviour
                 player = GameObject.Find("FPSController");
                 Instantiate(barrel, new Vector3(player.transform.position.x, player.transform.position.y, player.transform.position.z + 2), new Quaternion(0, 0, 0, 0));
             }
-            if(typedText == "/reset score"){
-                PlayerPrefs.SetInt("hszk",0);
-                PlayerPrefs.SetInt("zk",0);
-                PlayerPrefs.SetInt("money",0);
+            if (typedText == "/reset score")
+            {
+                PlayerPrefs.SetInt("hszk", 0);
+                PlayerPrefs.SetInt("zk", 0);
+                PlayerPrefs.SetInt("money", 0);
             }
-            if(typedText == "/reset settings"){
-                PlayerPrefs.SetInt("aa",0);
-                PlayerPrefs.SetInt("refr",0);
-                PlayerPrefs.SetInt("fpsMeter",0);
-                PlayerPrefs.SetInt("sdd",0);
-                PlayerPrefs.SetInt("sq",0);
+            if (typedText == "/reset settings")
+            {
+                PlayerPrefs.SetInt("aa", 0);
+                PlayerPrefs.SetInt("refr", 0);
+                PlayerPrefs.SetInt("fpsMeter", 0);
+                PlayerPrefs.SetInt("sdd", 0);
+                PlayerPrefs.SetInt("sq", 0);
+            }
+            if(typedText == "/give money"){
+                moneyManager.CurrentMoney = moneyManager.CurrentMoney + 10000;
             }
             //show error if command isnt found(not working)
             // if (typedText.Contains("/quit") || typedText.Contains("/trow error") || typedText.Contains("/clear console") || 
