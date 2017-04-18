@@ -5,6 +5,7 @@ public class LoadSettingsManager : MonoBehaviour
 {
     bool fullscreenRes;
     public GameObject fpsmeter;
+    AudioListener AudioListener;
     void Start()
     {
 
@@ -88,16 +89,19 @@ public class LoadSettingsManager : MonoBehaviour
         if (PlayerPrefs.GetInt("tq") == 1)
         {
             QualitySettings.masterTextureLimit = 1;
-        }     if (PlayerPrefs.GetInt("tq") == 2)
+        }
+        if (PlayerPrefs.GetInt("tq") == 2)
         {
             QualitySettings.masterTextureLimit = 2;
         }
-             if (PlayerPrefs.GetInt("tq") == 3)
+        if (PlayerPrefs.GetInt("tq") == 3)
         {
             QualitySettings.masterTextureLimit = 3;
         }
 
-
+        //volume
+        // AudioListener = Camera.main.GetComponent<AudioListener>();
+        // AudioListener.volume = PlayerPrefs.GetInt("volume");
 
     }
 

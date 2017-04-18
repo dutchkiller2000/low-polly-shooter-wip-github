@@ -21,11 +21,13 @@ public class PauseManager : MonoBehaviour
 
     void Start()
     {
-        simpleShootingsc = GameObject.Find("_scripts").GetComponent<SimpleShooting>(); // error
-        itemSpawnerManagersc = GameObject.Find("_scripts").GetComponent<ItemSpawnerManager>(); // error
+        simpleShootingsc = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
+        itemSpawnerManagersc = GameObject.Find("_scripts").GetComponent<ItemSpawnerManager>();
         consoleManager = this.gameObject.GetComponent<ConsoleManager>();
         Cursor.visible = false;
         storeManager = GameObject.Find("StoreTrigger").GetComponent<StoreManager>(); 
+        isPaused = false;
+        Time.timeScale = 1;
     }
     void Update()
     {

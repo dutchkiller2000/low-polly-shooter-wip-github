@@ -7,7 +7,7 @@ public class SimpleShooting : MonoBehaviour
     public float fireRate;
     public GameObject bullet;
     public GameObject spawnPos;
-    [HeaderAttribute("enable/disnable lag test(disnable bullet despawner and enabled counter)")]
+    [HeaderAttribute("enable/disnable lag test(disnable bullet despawner and enabled bullet counter)")]
     public bool debug;
     //fire rate stuff
     float timer;

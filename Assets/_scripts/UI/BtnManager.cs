@@ -65,6 +65,7 @@ public class BtnManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("change scene");
             SceneManager.LoadScene("UI");
         }
     }
