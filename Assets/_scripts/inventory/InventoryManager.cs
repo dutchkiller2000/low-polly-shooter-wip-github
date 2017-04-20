@@ -1,24 +1,59 @@
 ﻿using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+
 public class InventoryManager : MonoBehaviour {
-	public GameObject[] invItems; // max 6(so 5 in inspector because 0 counts too)
-	public RawImage[] thumpNail;
-	BuyItemHandler buyItemHandler;
-	void Start () {
-		for (int i = 0; i < invItems.Length; i++)
-		{
-			invItems[1] = null;
-		}
-
-		 buyItemHandler = GameObject.Find("StoreTrigger").GetComponent<BuyItemHandler>();
-
+    public GameObject[] inventoryItems;
+    public RawImage[] rawImage;
+    public int freeSlot;
+    void Start () {
+		
 	}
 	
 	void Update () {
-		
-	}
-	public void ChangePicture0(){
-		thumpNail[buyItemHandler.PlaceLoc].texture = buyItemHandler.ThumpNail[0];
-	}
+        CheckInvSpace();
+    }
+    void CheckInvSpace()
+    {
+
+        if(inventoryItems[0] == null)
+        {
+            freeSlot = 0;
+        }
+        else 
+        {
+            if(inventoryItems[1] == null)
+            {
+                freeSlot = 1;
+            }
+            else
+            {
+                if (inventoryItems[2] == null)
+                {
+                    freeSlot = 2;
+                }
+                else
+                {
+                    if(inventoryItems[3] == null)
+                    {
+                        freeSlot = 3;
+                    }
+                    else
+                    {
+                        if (inventoryItems[4] == null)
+                        {
+                            freeSlot = 4;
+                        }
+                        else
+                        {
+                            if (inventoryItems[5] == null)
+                            {
+                                freeSlot = 5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

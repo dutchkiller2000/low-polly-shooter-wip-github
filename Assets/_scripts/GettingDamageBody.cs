@@ -11,17 +11,17 @@ public class GettingDamageBody : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        BulletDamageManager bulletDamageManager = coll.gameObject.GetComponent<BulletDamageManager>();
+BulletDamageManager bulletDamageManager = coll.gameObject.GetComponent<BulletDamageManager>();
 
-        //body part damge part
-        if (coll.gameObject.tag == "bullet")
-        {
-            if (gettingDamageManager.currentHealth <= 0)
-            {
+              //body part damge part
+         if (coll.gameObject.tag == "bullet")
+                 {
+                         if (gettingDamageManager.currentHealth <= 0)
+                         {
             }
             else
             {
-                gettingDamageManager.currentHealth = gettingDamageManager.currentHealth - bulletDamageManager.body;
+             gettingDamageManager.currentHealth = gettingDamageManager.currentHealth - bulletDamageManager.body;
                 MoneyManager moneyManager;
                 moneyManager = GameObject.Find("_scripts").GetComponent<MoneyManager>();
                 moneyManager.AddMoneyBody();
