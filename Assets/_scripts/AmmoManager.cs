@@ -23,12 +23,15 @@ public class AmmoManager : MonoBehaviour
     public int reloadTime;
     bool reloading;
     int timer;
+
+    PauseManager pauseManager;
     void Start()
     {
         privateBullets = bullets;
         privateMags = mags;
         reloadText.SetActive(false);
         reloadingText.SetActive(false);
+        pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
     }
 
     void Update()
@@ -36,13 +39,13 @@ public class AmmoManager : MonoBehaviour
         Reload();
         bulletsText.text = privateBullets.ToString();
         magsText.text = privateMags.ToString();
-        if (Input.GetKeyDown(KeyCode.R) && privateMags > 0 && privateBullets >= 0)
+        if (Input.GetKeyDown(KeyCode.R) && privateMags > 0 && !pauseManager.isPaused)
         {
             reloading = true;
             reloadText.SetActive(false);
             reloadingText.SetActive(true);
         }
-        if (privateBullets <= 0)
+        if (privateBullets <= 0 || reloading)
         {
             canShoot = false;
         }
@@ -56,7 +59,8 @@ public class AmmoManager : MonoBehaviour
     {
         if (reloading)
         {
-
+            reloadText.SetActive(false);
+            canShoot = false;
             timer++;
             if (timer >= reloadTime)
             {
@@ -65,6 +69,7 @@ public class AmmoManager : MonoBehaviour
                 privateBullets = bullets;
                 reloading = false;
                 reloadingText.SetActive(false);
+                canShoot = true;
             }
         }
     }

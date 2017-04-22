@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class ReduceDoingDamage : MonoBehaviour
 {
-    int procent;
+    //int procent;
     int counter;
     public int timesReduceSpeed;
     [HeaderAttribute("the reducement of the damage in %!!!")]
@@ -23,12 +23,12 @@ public class ReduceDoingDamage : MonoBehaviour
         {
             Debug.Log("damage reduced");
 
-            procent = 100 - damageIfShot;
+            //procent = 100 - damageIfShot;
             counter = counter + 1;
             if (counter >= timesReduceSpeed)
             {
                 Debug.Log("damage reduced");
-                //GetComponentInChildren<zombieDamage>().damage = GetComponentInChildren<zombieDamage>().damage / 100 * procent;
+                //getcomponetType  try that?    <zombieDamage>().damage = GetComponentInChildren<zombieDamage>().damage / 100 * procent;
 				//ERROR: cant find component because its cearching in child but this gm is already a child so it doent gave child
             }
         }

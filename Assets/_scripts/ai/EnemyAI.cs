@@ -23,7 +23,7 @@ public class EnemyAI : MonoBehaviour
     {
         if (!PauseManager.isPaused)
         {
-            if (player.active)
+            if (player.activeInHierarchy)
             {
                 if (GameObject.Find("enemy") || GameObject.Find("enemy(Clone)"))
                 {

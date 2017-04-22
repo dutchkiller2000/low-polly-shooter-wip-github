@@ -4,9 +4,7 @@ using UnityEngine.UI;
 public class VolumeManager : MonoBehaviour {
 	public Slider volumeSlider;
 	public Text procentText;
-	AudioListener AudioListener;
 	void Start () {
-		AudioListener = Camera.main.GetComponent<AudioListener>(); 
 		volumeSlider.value = PlayerPrefs.GetInt("volume");
 	}
 	

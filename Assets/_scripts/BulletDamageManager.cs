@@ -28,9 +28,9 @@ public class BulletDamageManager : MonoBehaviour
             Instantiate(marker,pos,new Quaternion(0,0,0,0));
         
         }
-        //  if (!simpleShooting.debug)
-        //  {
+          if (!simpleShooting.debug)
+          {
              Destroy(this.transform.gameObject);
-        // }
+          }
     }
 }

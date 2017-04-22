@@ -29,6 +29,7 @@ BulletDamageManager bulletDamageManager = coll.gameObject.GetComponent<BulletDam
             if (gettingDamageManager.debug)
             {
                 Debug.Log("the player lost: " + bulletDamageManager.body + " health so it has now: " + gettingDamageManager.currentHealth + " health!");
+               
             }
         }
     }
