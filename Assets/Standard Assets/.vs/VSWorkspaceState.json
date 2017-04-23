@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "\\Characters",
+    "\\Characters\\FirstPersonCharacter",
+    "\\Characters\\FirstPersonCharacter\\Scripts",
+    "\\Characters\\RollerBall",
+    "\\CrossPlatformInput",
+    "\\CrossPlatformInput\\Prefabs",
+    "\\CrossPlatformInput\\Scripts"
+  ],
+  "PreviewInSolutionExplorer": false
+}

@@ -15,6 +15,7 @@ public class PauseManager : MonoBehaviour
     ItemSpawnerManager itemSpawnerManagersc;
     ConsoleManager consoleManager;
     StoreManager storeManager;
+    BuildingManager buildingManager;
 
 
     public bool isPaused;
@@ -28,6 +29,7 @@ public class PauseManager : MonoBehaviour
         storeManager = GameObject.Find("StoreTrigger").GetComponent<StoreManager>(); 
         isPaused = false;
         Time.timeScale = 1;
+        buildingManager = GetComponent<BuildingManager>();
     }
     void Update()
     {
@@ -56,6 +58,7 @@ public class PauseManager : MonoBehaviour
             consoleManager.InputFieldGM.SetActive(false);
             ammoUI.SetActive(false);
             healthSlider.SetActive(false);
+            buildingManager.enabled = false;
         }
         else
         {
@@ -68,6 +71,7 @@ public class PauseManager : MonoBehaviour
             consoleManager.enabled = true;
             ammoUI.SetActive(true);
             healthSlider.SetActive(true);
+            buildingManager.enabled = true;
         }
     }
 }

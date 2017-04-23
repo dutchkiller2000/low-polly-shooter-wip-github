@@ -8,13 +8,14 @@ public class InventoryManager : MonoBehaviour {
     public RawImage[] rawImage;
     public int freeSlot;
     public Texture transparant;
+    
     void Start () {
 		
 	}
 	
 	void Update () {
         CheckInvSpace();
-        Removeitem();
+      //  Removeitem();
     }
 
     private void Removeitem()

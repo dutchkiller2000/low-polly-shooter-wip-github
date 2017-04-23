@@ -22,7 +22,9 @@ GameObject:
   - component: {fileID: 33020319559298130}
   - component: {fileID: 65480351591368128}
   - component: {fileID: 23153571644451514}
-  m_Layer: 0
+  - component: {fileID: 114185408456249108}
+  - component: {fileID: 208206241153744044}
+  m_Layer: 2
   m_Name: placeHolderWall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -36,7 +38,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1614034400702146}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 611.494, y: 120.147, z: 0}
+  m_LocalPosition: {x: 124.84864, y: -41.25971, z: 254.94211}
   m_LocalScale: {x: 3.7187717, y: 1.8805879, z: 0.4931161}
   m_Children: []
   m_Father: {fileID: 0}
@@ -93,3 +95,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &114185408456249108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614034400702146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fc8b116b4d3fd645ba96bc328afc87c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!208 &208206241153744044
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1614034400702146}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5

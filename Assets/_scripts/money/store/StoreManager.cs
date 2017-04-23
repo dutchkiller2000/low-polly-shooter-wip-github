@@ -13,11 +13,13 @@ public class StoreManager : MonoBehaviour
     public bool canOpenStore = true;
     PauseManager pauseManager;
     ConsoleManager consoleManager;
+    BuildingManager buildingManager;
     void Start()
     {
         simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
         pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
         consoleManager = GameObject.Find("_scripts").GetComponent<ConsoleManager>();
+        buildingManager = GameObject.Find("_scripts").GetComponent<BuildingManager>();
 
     }
 
@@ -67,27 +69,28 @@ public class StoreManager : MonoBehaviour
     {
         storeUI.SetActive(true);
         fps.enabled = false;
-        Cursor.visible = true;
         simpleShooting.enabled = false;
         for (int i = 0; i < GMToDisn.Length; i++)
         {
             GMToDisn[i].SetActive(false);
         }
         StartCoroutine(canOpenAgain());
+        buildingManager.enabled = false;
+        Cursor.visible = true;
     }
     public void OnStoreClose()
     {
         simpleShooting.enabled = true;
         fps.enabled = true;
         storeUI.SetActive(false);
-        Cursor.visible = false;
         for (int i = 0; i < GMToDisn.Length; i++)
         {
             GMToDisn[i].SetActive(true);
         }
         StartCoroutine(canOpenAgain());
         pauseManager.isPaused = false;
-
+        buildingManager.enabled = true;
+        Cursor.visible = false;
     }
     IEnumerator canOpenAgain()
     {
