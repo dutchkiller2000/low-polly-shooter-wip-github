@@ -27,7 +27,7 @@ public class GettingDamage : MonoBehaviour
             if (timer >= zombieDamage.hitSpeed)
             {
                 timer = 0;
-                this.GetComponentInParent<HealtManager>().currentHealth = this.GetComponentInParent<HealtManager>().currentHealth - coll.GetComponent<zombieDamage>().damage;
+                this.GetComponentInParent<HealtManager>().currentHealth = this.GetComponentInParent<HealtManager>().currentHealth - Random.Range( coll.GetComponent<zombieDamage>().minDamage, coll.GetComponent<zombieDamage>().maxDamage);
             }
         }
     }

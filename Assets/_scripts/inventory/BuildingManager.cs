@@ -5,7 +5,7 @@ using UnityEngine;
 public class BuildingManager : MonoBehaviour {
     InventoryManager inventoyManager;
     GameObject buildingGM;
-    bool isbuilding;
+    public bool isbuilding;
     RaycastHit hit;
     Ray ray;
     public float rayCastRange;
@@ -16,7 +16,7 @@ public class BuildingManager : MonoBehaviour {
     void Update() {
         GettingInvItem();
         building();
-        Debug.Log(Cursor.visible);
+        RotateItem();
     }
 
 
@@ -31,9 +31,9 @@ public class BuildingManager : MonoBehaviour {
                 GameObject.Find(buildingGM.name + "(Clone)").transform.position = hit.point;
                 Debug.DrawLine(GameObject.Find("FirstPersonCharacter").transform.position, hit.point, Color.green);
             }
-            
 
-            if (Input.GetKeyDown(KeyCode.Return))
+
+            if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))    
                 {
                     isbuilding = false;
                     GameObject.Find(buildingGM.name + "(Clone)").layer = 0;
@@ -116,5 +116,15 @@ public class BuildingManager : MonoBehaviour {
                 }
             }
         }
-    }   
+    }  
+    void RotateItem()
+    {
+        if (isbuilding)
+        {
+            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
+            {
+                Debug.LogError("item rotation not implemented yet!");
+            }
+        }
+    }
 }

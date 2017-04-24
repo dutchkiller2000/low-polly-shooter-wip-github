@@ -23,6 +23,7 @@ public class AmmoManager : MonoBehaviour
     public int reloadTime;
     bool reloading;
     int timer;
+    BuildingManager buildingManager;
 
     PauseManager pauseManager;
     void Start()
@@ -32,6 +33,7 @@ public class AmmoManager : MonoBehaviour
         reloadText.SetActive(false);
         reloadingText.SetActive(false);
         pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
+        buildingManager = GameObject.Find("_scripts").GetComponent<BuildingManager>();
     }
 
     void Update()
@@ -52,6 +54,18 @@ public class AmmoManager : MonoBehaviour
         else
         {
             canShoot = true;
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+
+            if (buildingManager.isbuilding)
+            {
+                canShoot = false;
+            }
+            else
+            {
+                canShoot = true;
+            }
         }
     }
 

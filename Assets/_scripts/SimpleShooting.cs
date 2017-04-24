@@ -15,6 +15,7 @@ public class SimpleShooting : MonoBehaviour
     void Start()
     {
         ammoManager = this.gameObject.GetComponent<AmmoManager>();
+        
     }
 
     void FixedUpdate()

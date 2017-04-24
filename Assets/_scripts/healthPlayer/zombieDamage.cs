@@ -2,8 +2,9 @@
 using UnityEngine;
 
 public class zombieDamage : MonoBehaviour {
-	public int damage;
-	public int hitSpeed;
+	public int minDamage;
+    public int maxDamage;
+    public int hitSpeed;
 	void Start () {
 		
 	}
