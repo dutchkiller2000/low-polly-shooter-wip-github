@@ -34,12 +34,12 @@ public class BuildingManager : MonoBehaviour {
 
 
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))    
-                {
+            {
                     isbuilding = false;
                     GameObject.Find(buildingGM.name + "(Clone)").layer = 0;
                     GameObject.Find(buildingGM.name + "(Clone)").name = buildingGM.name;
                     buildingGM = null;
-                }
+            }
         }
     }
         private void GettingInvItem()
@@ -121,10 +121,22 @@ public class BuildingManager : MonoBehaviour {
     {
         if (isbuilding)
         {
-            if (Input.GetKeyDown(KeyCode.Q) || Input.GetKeyDown(KeyCode.E) || Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
+            if (Input.GetAxis("Mouse ScrollWheel") > 0 || Input.GetAxis("Mouse ScrollWheel") < 0)
             {
-                Debug.LogError("item rotation not implemented yet!");
+                GameObject gm = GameObject.Find(buildingGM.name + "(Clone)");
+                Debug.Log(gm.transform.rotation.y + (Input.GetAxis("Mouse ScrollWheel") * 100));
+                Vector3 pos = new Vector3(gm.transform.eulerAngles.x, gm.transform.eulerAngles.y , gm.transform.eulerAngles.z);
+                pos = new Vector3(pos.x, pos.y+ (Input.GetAxis("Mouse ScrollWheel") *100), pos.z);
+                gm.transform.eulerAngles = pos;
             }
+            //else
+            //{
+            //    GameObject gm = GameObject.Find(buildingGM.name + "(Clone)");
+            //    Debug.Log(gm.transform.rotation.y + (Input.GetAxis("Mouse ScrollWheel") * 100));
+            //    Vector3 pos = new Vector3(gm.transform.eulerAngles.x, gm.transform.eulerAngles.y, gm.transform.eulerAngles.z);
+            //    pos = new Vector3(pos.x, pos.y + (Input.GetAxis("Mouse ScrollWheel") * 100), pos.z);
+            //    gm.transform.eulerAngles = pos;
+            //}
         }
     }
 }

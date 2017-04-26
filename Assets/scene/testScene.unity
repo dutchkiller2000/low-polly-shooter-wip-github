@@ -6230,9 +6230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buyableItems:
-  - {fileID: 1614034400702146, guid: 2daabb0bc80eac34ab208daa8609b16f, type: 2}
-  - {fileID: 1614034400702146, guid: 0c618c41df0180243acc4a1601a25f4b, type: 2}
-  price: 0000000000000000
+  - {fileID: 1288146756766006, guid: 14ed8344324f6e54994a19381204a5d6, type: 2}
+  - {fileID: 1481130479664160, guid: 8b80860fcc001844c8e491fdd4e6dfda, type: 2}
+  price: 0a00000014000000
   thumpNails:
   - {fileID: 2800000, guid: 22eebbe632967b94d8ea85daa7caa585, type: 3}
   - {fileID: 2800000, guid: 556fd985ea4d20541a1edb81742e5586, type: 3}
