@@ -11,10 +11,10 @@ public class SimpleShooting : MonoBehaviour
     public bool debug;
     //fire rate stuff
     float timer;
-    AmmoManager ammoManager;
+    AmmoManagerReloaded ammoManager;
     void Start()
     {
-        ammoManager = this.gameObject.GetComponent<AmmoManager>();
+        ammoManager = this.gameObject.GetComponent<AmmoManagerReloaded>();
         
     }
 

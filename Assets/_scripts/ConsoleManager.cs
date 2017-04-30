@@ -13,7 +13,7 @@ public class ConsoleManager : MonoBehaviour
     public GameObject errorMes;
     public InputField InputField;
     FirstPersonController firstPersonController;
-    AmmoManager ammoManager;
+    AmmoManagerReloaded ammoManager;
     HealtManager healthManager;
     MoneyManager moneyManager;
     bool godMode;
@@ -27,7 +27,7 @@ public class ConsoleManager : MonoBehaviour
     void Start()
     {
         //InputField = GameObject.Find("console").GetComponent<InputField>();
-        ammoManager = this.gameObject.GetComponent<AmmoManager>();
+        ammoManager = this.gameObject.GetComponent<AmmoManagerReloaded>();
         firstPersonController = GameObject.Find("FPSController").GetComponent<FirstPersonController>();
         InputFieldGM.SetActive(false);
         typedText = "";
@@ -76,7 +76,7 @@ public class ConsoleManager : MonoBehaviour
             //check if any commands has been typed
             if (typedText.Contains("/give ammo"))
             {
-                ammoManager.privateMags += 5;
+                ammoManager.privateMaxBullets += 100;
             }
             if (typedText == "/quit")
             {

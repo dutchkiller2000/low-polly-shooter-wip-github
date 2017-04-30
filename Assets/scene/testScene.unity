@@ -4680,7 +4680,6 @@ GameObject:
   - component: {fileID: 1606556495}
   - component: {fileID: 1606556494}
   - component: {fileID: 1606556493}
-  - component: {fileID: 1606556497}
   - component: {fileID: 1606556498}
   - component: {fileID: 1606556499}
   - component: {fileID: 1606556500}
@@ -4688,6 +4687,7 @@ GameObject:
   - component: {fileID: 1606556501}
   - component: {fileID: 1606556503}
   - component: {fileID: 1606556504}
+  - component: {fileID: 1606556505}
   m_Layer: 0
   m_Name: _scripts
   m_TagString: Untagged
@@ -4758,28 +4758,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1606556497
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1606556492}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8bda09cdc94b145b2ed830aae0ec7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bullets: 20
-  mags: 6
-  bulletsText: {fileID: 189286654}
-  magsText: {fileID: 1848552824}
-  reloadText: {fileID: 1547648273}
-  reloadingText: {fileID: 412226202}
-  privateBullets: 0
-  privateMags: 0
-  canShoot: 0
-  AudioSource: {fileID: 380121482}
-  reloadTime: 130
 --- !u!114 &1606556498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4905,6 +4883,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isbuilding: 0
   rayCastRange: 500
+--- !u!114 &1606556505
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1606556492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e109793d2ffb0a4458e8f90c48e42ab4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletText: {fileID: 189286654}
+  totalBullets: {fileID: 1848552824}
+  reloadText: {fileID: 1547648273}
+  BulletInMag: 20
+  maxBullets: 100
+  privateMaxBullets: 0
+  AudioSource: {fileID: 380121482}
+  canShoot: 0
+  reloadTime: 130
+  reloadingText: {fileID: 412226202}
 --- !u!1 &1618766373
 GameObject:
   m_ObjectHideFlags: 0
