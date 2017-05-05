@@ -16,10 +16,10 @@ public class BulletDamageManager : MonoBehaviour
 	public GameObject marker;
     void Start()
     {
-        simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
     }
     void OnCollisionEnter(Collision coll)
     {
+        simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
         
         if (debugMarker)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class BuildingManager : MonoBehaviour {
     InventoryManager inventoyManager;
     GameObject buildingGM;
@@ -28,17 +28,25 @@ public class BuildingManager : MonoBehaviour {
             var ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             if (Physics.Raycast(ray, out hit, rayCastRange))
             {
-                GameObject.Find(buildingGM.name + "(Clone)").transform.position = hit.point;
+                GameObject gm = GameObject.Find(buildingGM.name + "(Clone)");
+                gm.transform.position = hit.point;
                 Debug.DrawLine(GameObject.Find("FirstPersonCharacter").transform.position, hit.point, Color.green);
+                gm.GetComponentInChildren<Collider>().enabled = false;
+                gm.GetComponent<NavMeshObstacle>().enabled = false;
+                
             }
 
 
             if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))    
             {
-                    isbuilding = false;
-                    GameObject.Find(buildingGM.name + "(Clone)").layer = 0;
-                    GameObject.Find(buildingGM.name + "(Clone)").name = buildingGM.name;
-                    buildingGM = null;
+                GameObject gm = GameObject.Find(buildingGM.name + "(Clone)");
+                gm.GetComponentInChildren<Collider>().enabled = true;
+                isbuilding = false;
+                gm.layer = 0;
+                gm.name = buildingGM.name;
+                buildingGM = null;
+                gm.GetComponent<NavMeshObstacle>().enabled = true;
+
             }
         }
     }

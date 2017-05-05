@@ -14,13 +14,14 @@ public class StoreManager : MonoBehaviour
     PauseManager pauseManager;
     ConsoleManager consoleManager;
     BuildingManager buildingManager;
+    BuyHandler buyHander;
     void Start()
     {
         simpleShooting = GameObject.Find("_scripts").GetComponent<SimpleShooting>();
         pauseManager = GameObject.Find("_scripts").GetComponent<PauseManager>();
         consoleManager = GameObject.Find("_scripts").GetComponent<ConsoleManager>();
         buildingManager = GameObject.Find("_scripts").GetComponent<BuildingManager>();
-
+        buyHander = this.GetComponent<BuyHandler>();
     }
 
     void Update()
@@ -91,6 +92,7 @@ public class StoreManager : MonoBehaviour
         pauseManager.isPaused = false;
         buildingManager.enabled = true;
         Cursor.visible = false;
+        buyHander.notEnoughMoneyText.SetActive(false);
     }
     IEnumerator canOpenAgain()
     {

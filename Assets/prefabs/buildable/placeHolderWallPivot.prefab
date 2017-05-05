@@ -22,8 +22,6 @@ GameObject:
   - component: {fileID: 33850397459675940}
   - component: {fileID: 65710109429744432}
   - component: {fileID: 23041280475659914}
-  - component: {fileID: 114422051671718662}
-  - component: {fileID: 208379578090721584}
   m_Layer: 2
   m_Name: placeHolderWall
   m_TagString: Untagged
@@ -39,6 +37,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4266116805251408}
+  - component: {fileID: 208819216020496110}
   m_Layer: 0
   m_Name: placeHolderWallPivot
   m_TagString: Untagged
@@ -66,7 +65,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1288146756766006}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.96, z: 0}
+  m_LocalPosition: {x: 120.234985, y: -41.79387, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4172485669492072}
@@ -124,29 +123,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &114422051671718662
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1033350020585530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!208 &208379578090721584
+--- !u!208 &208819216020496110
 NavMeshObstacle:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1033350020585530}
+  m_GameObject: {fileID: 1288146756766006}
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_Extents: {x: 1.86, y: 0.98, z: 0.5}
   m_MoveThreshold: 0.1
   m_Carve: 0
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 0.99, z: 0}
   m_TimeToStationary: 0.5
