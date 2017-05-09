@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 195650780596299630}
   - component: {fileID: 65592644461554024}
   - component: {fileID: 143143015096592060}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: enemy
   m_TagString: Untagged
   m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 136574095578807954}
   - component: {fileID: 23508745470871754}
   - component: {fileID: 114857860245510508}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 136833771312921784}
   - component: {fileID: 23092335041613654}
   - component: {fileID: 114347982888079520}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: leg_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -83,7 +83,7 @@ GameObject:
   - component: {fileID: 114226153581518594}
   - component: {fileID: 136770128146915452}
   - component: {fileID: 114336892999583898}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: arm_right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 114540318729331270}
   - component: {fileID: 136296696448261960}
   - component: {fileID: 114569810433599458}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: arm_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ GameObject:
   - component: {fileID: 4917933251874660}
   - component: {fileID: 65888217133947544}
   - component: {fileID: 114630867701231542}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ' damage'
   m_TagString: zombie
   m_Icon: {fileID: 0}
@@ -140,7 +140,7 @@ GameObject:
   - component: {fileID: 135731702691873448}
   - component: {fileID: 23550406377584006}
   - component: {fileID: 114244859800770848}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -159,7 +159,7 @@ GameObject:
   - component: {fileID: 136863780572717390}
   - component: {fileID: 23968195208179006}
   - component: {fileID: 114933128058784064}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: leg_left
   m_TagString: Untagged
   m_Icon: {fileID: 0}

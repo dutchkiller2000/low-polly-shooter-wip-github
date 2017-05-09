@@ -2321,38 +2321,6 @@ Prefab:
       propertyPath: text
       value: 
       objectReference: {fileID: 2108236616}
-    - target: {fileID: 1934410857870150, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1877772913212798, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1472011780056354, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1522356865612102, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1103208727764478, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1790434941498946, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1795868943336262, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1998469109341508, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
-      propertyPath: m_Layer
-      value: 2
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 615c9831a52b5014589baf37dbe230ea, type: 2}
   m_IsPrefabParent: 0
